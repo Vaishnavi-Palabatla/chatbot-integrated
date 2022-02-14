@@ -78,7 +78,7 @@ function getBotResponse() {
     document.getElementById('userInput').scrollIntoView({block : 'start',behaviour:'smooth'});
     if(rawText.toLowerCase()=="bye")
     {
-        window.location.replace('http://127.0.0.1:5000/feedback');
+        window.location.replace('/feedback');
     }
     });
     

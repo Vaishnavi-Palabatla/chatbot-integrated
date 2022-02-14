@@ -2009,11 +2009,11 @@ def run_chatbot(usertext): #function that starts chatbot
         if(user_input in ['thanks','thank you','thankyou'] ):
             flag=False
             print("ROBOT: You are welcome...")
-            return "ROBOT: You are welcome..."
+            return " You are welcome..."
         else:
             if(greeting(user_input)!=None): #greeting
                 print("ROBOT: "+greeting(user_input))
-                return "ROBOT: "+greeting(user_input)
+                return " "+greeting(user_input)
             else:
                 user_intents=find_intents(user_input) #find user intents
                 #user_intents=change_phrase_to_word(user_intents)
@@ -2054,10 +2054,10 @@ def run_chatbot(usertext): #function that starts chatbot
                     
                 if type(resp)==str: #only one response
                     print(resp) 
-                    return "ROBOT: "+ resp
+                    return " "+ resp
                 else: #pick a random response from a list of responses
                     print(list(set(resp)))
-                    return "ROBOT: "+ list(set(resp))
+                    return " "+ list(set(resp))
         print('---------------------------')
         end_time=datetime.now() #timer starts
         print('time taken(seconds):',(end_time-start_time).total_seconds())
@@ -2068,7 +2068,7 @@ def run_chatbot(usertext): #function that starts chatbot
     else: #end conversation
         flag=False
         print("ROBOT: Bye! take care...")
-        return "ROBOT: Bye! take care..."
+        return " Bye! take care..."
 
     
 # ========create required files for the chatbot========

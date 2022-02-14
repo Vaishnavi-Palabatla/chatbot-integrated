@@ -10,11 +10,13 @@ $(document).ready(function() {
     $(":button").click(function(event){
         var text=$(this).prop("id")
         $(this).prop("disabled", true);
-        $(this).html('<i class="fa fa-circle-o-notch fa-spin"></i> loading...');
+        $("#timetaking").html('<section><i class="fa fa-circle-o-notch fa-spin"></i> loading...It takes time to get trained</section>');
+        // $("#timetaking").html('<p> It takes time to get trained</p>');
+
         console.log(text)
         $.get("/typebot", {types:text}).done(function(data) {
             console.log(data)
-        window.location.replace('http://127.0.0.1:5000/indexfile');
+        window.location.replace('/indexfile');
       
     });
 });

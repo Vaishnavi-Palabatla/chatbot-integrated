@@ -1733,11 +1733,11 @@ def start_chatbot(usertext):
         if(user_input in ['thanks','thank you','thankyou'] ):
             flag=False
             print("BOT : You are welcome..")
-            return "BOT : You are welcome.." 
+            return "You are welcome.." 
         else:
             if(greeting(user_input)!=None): #greeting
                 print("BOT : "+greeting(user_input))
-                return "BOT : "+greeting(user_input) 
+                return greeting(user_input) 
             elif "full_form" in uq1[0]:
                 return find_fullform(uq1[0],fullform_list)
             else:
@@ -1746,7 +1746,7 @@ def start_chatbot(usertext):
                 if len(l1)!=0:
                     if len(l1)==1:
                         print("BOT : "+ans_list[l1[0]])
-                        return "BOT : "+ans_list[l1[0]]
+                        return ans_list[l1[0]]
                     else:
                         final_list=l1
                 elif len(uq1[0])==1:
@@ -1754,26 +1754,26 @@ def start_chatbot(usertext):
                     return single_word_def(user[0],single_word_dict)
                 else:
                     print("BOT : "+"insufficient data")
-                    return "BOT : "+"insufficient data"
+                    return "insufficient data"
                 if len(final_list)!=0:
                     nd=vectorized_dictionary(final_list,user_input,uq1,que_list,que_syn_dict,que_tfidf,model_que)
                     val_que,ind_que,ms_que=find_response_match_v2(nd,que_vector,que_list,ans_list)
                     if len(list(set(val_que)))==1:
                         print("BOT : ",val_que[0])
-                        return "BOT : ",val_que[0]
+                        return val_que[0]
                     else:
                         print("BOT : i might not be precise but i got some relevant information")
                         
                         for i in set(val_que):
                             print(i)
-                        return "BOT : i might not be precise but i got some relevant information "
+                        return "I might not be precise but i got some relevant information "
                 if  bool(nd):
                     que_syn_dict_index={**que_syn_dict_index,**nd}
 
     else: #end conversation
         flag=False
         print("ROBO: Bye! take care..")
-        return "ROBO: Bye! take care.." 
+        return "Bye! take care.." 
     pickle_create("que_syn_dict_index_w.pickle",que_syn_dict_index)
 
 
